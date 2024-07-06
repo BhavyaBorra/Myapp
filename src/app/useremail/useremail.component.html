@@ -1,0 +1,19 @@
+<form [formGroup]="emailForm" (ngSubmit)="onSubmit()">
+    <h3 class="header">Communication Email</h3>
+    <div class="input-container">
+        <label>Email Address</label><br>
+        <input type="text" formControlName="email" placeholder="Email" />
+        <div *ngIf="emailForm.controls['email'].invalid && (emailForm.controls['email'].dirty || emailForm.controls['email'].touched)"
+             class="error">
+            Address line 1 is required and should be valid email format
+        </div>
+    </div>
+    <div class="button-container">
+        <button type="button" class="previous-button" (click)="onPrevious()" style="background-color:white;color: #0056b3;">Previous</button>
+        <button type="submit" class="update-button" style="background-color: #0056b3;color:white;">Update</button>
+    </div>
+</form>
+
+<div *ngIf="showOtpModal" class="otp-dialog">
+    <app-otpgen (otpVerified)="onOtpVerified()" (close)="onCloseOtp()"></app-otpgen>
+  </div>

@@ -1,0 +1,54 @@
+form {
+    max-width: 70%;
+    margin-left: 5%;
+    padding: 10px;
+}
+
+.header {
+    color: brown;
+}
+
+.form-row {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.input-container {
+    margin-right: 10%;
+    width: 50%;
+}
+
+label {
+    display: block;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 6px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.error {
+    color: red;
+    font-size: 0.875em;
+}
+
+.button-container {
+    display: flex;
+}
+
+.previous-button, .update-button {
+    border: 1px solid #0056b3;
+    padding: 10px 20px;
+    width: 50%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 8%;
+    cursor: pointer;
+    border-radius: 4px;
+}
+

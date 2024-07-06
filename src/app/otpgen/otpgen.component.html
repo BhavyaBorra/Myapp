@@ -1,0 +1,14 @@
+<div class="otp-modal">
+  <!-- <p class="header">OTP Verification</p> -->
+  <div class="header">
+    OTP Verification
+    <button class="close-btn" (click)="closeOtp()">X</button>
+  </div>
+  <h2 class="otptext">OTP : {{ otp }}</h2>
+  <p class="para">Please enter OTP recieved on your registered mobile number/email address</p>
+  <input class="otp-input" type="text" [(ngModel)]="userInput" maxlength="6" placeholder="Enter OTP" (input)="validateOtp()" />
+  <div *ngIf="isInvalidOtp" class="error">Invalid OTP</div>
+  <p style="color:green;font-size:small;margin-left:5%;">OTP sent successfully</p>
+  <button class="btn" (click)="resendOtp()">Resend OTP</button>
+  <button class="btn" (click)="submitOtp()">Submit OTP</button>
+</div>

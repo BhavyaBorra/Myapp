@@ -1,0 +1,27 @@
+.maindiv {
+  margin-top: 10%;
+  margin-left: 30%;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: brown;
+  margin-left: 50%;
+}
+
+.line {
+  width: 2px;
+  height: 100px;
+  background-color: brown;
+  margin-left: 63%;
+}
+
+.circle.completed {
+  background-color: green;
+}
+
+.line.completed {
+  background-color: green;
+}

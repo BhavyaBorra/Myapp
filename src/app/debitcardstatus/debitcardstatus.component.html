@@ -1,0 +1,25 @@
+<form [formGroup]="statusForm" (ngSubmit)="onSubmit()">
+    <h3 class="header">Debit Card Reorder</h3>
+    <p style="color:rgb(187, 37, 17);">Please follow the below steps if you have not received your Debir Card even after 5 working days of your previous request.</p>
+    <br>
+    <div class="form-row">
+        <div class="input-container">
+            <label for="accountNumber">Account Number</label>
+            <select formControlName="accountNumber" id="accountNumber" class="form-control">
+                <option *ngFor="let account of user?.accountnumber" [value]="account">{{ account }}</option>
+            </select>
+            <div *ngIf="statusForm.get('accountNumber')?.errors?.['required'] && statusForm.get('accountNumber')?.touched"
+                class="error">
+                Account Number is required.
+            </div>
+        </div>
+        <div class="input-container">
+        </div>
+    </div>
+    <br><br>
+    <div class="button-container">
+        <button type="button" class="previous-button" (click)="onPrevious()"
+            style="background-color:white;color: #0056b3;">Previous</button>
+        <button type="submit" class="update-button" style="background-color: #0056b3;color:white;">Submit</button>
+    </div>
+</form>

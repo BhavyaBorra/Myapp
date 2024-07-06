@@ -1,0 +1,15 @@
+<div class="background-image">
+  <img src="assets/icici_logo.svg" class="header-image" alt="Header Image">
+  <div class="container">
+    <div class="tab">
+      <button class="tablinks" [class.active]="activeTab === 'login'" (click)="openTab('login')">LOGIN</button>
+      <button class="tablinks" [class.active]="activeTab === 'register'" (click)="openTab('register')">REGISTER</button>
+    </div>
+    <div id="login" class="tabcontent" *ngIf="activeTab === 'login'">
+      <app-login></app-login>
+    </div>
+    <div id="register" class="tabcontent" *ngIf="activeTab === 'register'">
+      <app-register></app-register>
+    </div>
+  </div>
+</div>

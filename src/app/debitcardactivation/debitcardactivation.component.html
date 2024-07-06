@@ -1,0 +1,47 @@
+<form [formGroup]="activationForm" (ngSubmit)="onSubmit()">
+    <h3 class="header">Debit Card Activation</h3>
+    <div class="form-row">
+        <div class="input-container">
+            <label for="accountNumber">Account Number</label>
+            <select formControlName="accountNumber" id="accountNumber" class="form-control">
+                <option *ngFor="let account of user?.accountnumber" [value]="account">{{ account }}</option>
+            </select>
+            <div *ngIf="activationForm.get('accountNumber')?.errors?.['required'] && activationForm.get('accountNumber')?.touched"
+                class="error">
+                Account Number is required.
+            </div>
+        </div>
+        <div class="input-container">
+            <label for="name">Name</label>
+            <input formControlName="name" id="name" class="form-control1" [disabled]="true">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="input-container">
+            <label for="cardNumber">Card Number</label>
+            <select formControlName="cardNumber" id="cardNumber" class="form-control">
+                <option *ngFor="let card of debitCards" [value]="card">{{ card }}</option>
+            </select>
+            <div *ngIf="activationForm.get('cardNumber')?.errors?.['required'] && activationForm.get('cardNumber')?.touched"
+                class="error">
+                Card Number is required.
+            </div>
+        </div>
+        <div class="input-container">
+            <label for="email">Email</label>
+            <input formControlName="email" id="email" class="form-control1" [disabled]="true">
+        </div>
+    </div>
+    <p>Please Note:</p>
+    <ul>
+        <li>Post Activation of your Debit card, the first transaction should be done at ATM.</li>
+        <li>Your request for activation of card will be processed within 24 hours.</li>
+        <li>On activation of new card, we will block your old card if available and not blocked.</li>
+    </ul>
+    <br><br>
+    <div class="button-container">
+        <button type="button" class="previous-button" (click)="onPrevious()"
+            style="background-color:white;color: #0056b3;">Previous</button>
+        <button type="submit" class="update-button" style="background-color: #0056b3;color:white;">Submit</button>
+    </div>
+</form>

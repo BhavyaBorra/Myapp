@@ -1,0 +1,35 @@
+<div class="content">
+    <button class="content-button" (click)="navigateTo('useraddress')">
+        <div>
+            <i class="fas fa-map-marker-alt button-icon"
+                style="margin-right: 10px;"></i>
+            <span class="button-content">Mailing / Home Address</span>
+        </div>
+        <i class="fas fa-angle-double-right button-icon" style="margin-right: 10px;"></i>
+    </button>
+    <button class="content-button" (click)="navigateTo('useremail')">
+        <div>
+            <i class="fa fa-envelope button-icon"
+                style="margin-right: 10px;"></i>
+            <span class="button-content">Email</span>
+        </div>
+        <i class="fas fa-angle-double-right button-icon" style="margin-right: 10px;"></i>
+    </button>
+    <button class="content-button" (click)="navigateTo('usermobile')">
+        <div>
+            <i class="fa fa-phone button-icon"
+                style="margin-right: 10px;"></i>
+            <span class="button-content">Mobile Phone Number</span>
+        </div>
+        <i class="fas fa-angle-double-right button-icon" style="margin-right: 10px;"></i>
+    </button>
+    <button class="content-button" (click)="navigateTo('userconsent')">
+        <div>
+            <i class="fa fa-bullhorn button-icon"
+                style="margin-right: 10px;"></i>
+            <span class="button-content">Communication Consent</span>
+        </div>
+        <i class="fas fa-angle-double-right button-icon" style="margin-right: 10px;"></i>
+    </button>
+    <router-outlet></router-outlet>
+</div>

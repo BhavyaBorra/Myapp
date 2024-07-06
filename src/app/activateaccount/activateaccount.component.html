@@ -1,0 +1,319 @@
+<div class="maincontainer">
+  <div class="stepper-container">
+    <div style="position:relative;overflow:hidden;min-height:350px;">
+      <div style="min-height:200px;overflow-y:scroll;">
+        <div class="stepper-navigation">
+          <div class="stepper-step" [class.active]="currentStep === 1" (click)="setStep(1)"></div>
+          <div class="stepper-line"></div>
+          <div class="stepper-step" [class.active]="currentStep === 2" (click)="setStep(2)"></div>
+          <div class="stepper-line"></div>
+          <div class="stepper-step" [class.active]="currentStep === 3" (click)="setStep(3)"></div>
+        </div>
+        <form [formGroup]="form" class="stepper">
+          <div class="step" [class.active]="currentStep === 1">
+            <div class="step-content">
+              <p class="heading">Debit Card Details</p>
+              <p class="text">Have you received the Debit Card?</p>
+              <label>
+                <input type="radio" formControlName="activationStatus" value="yes"
+                  (change)="onActivationChange($event)" />
+                Yes
+              </label>
+              <label>
+                <input type="radio" formControlName="activationStatus" value="no"
+                  (change)="onActivationChange($event)" />
+                No
+              </label>
+              <div style="margin-top: 5px;" *ngIf="form.get('activationStatus')?.value === 'yes'">Debit Card will be
+                Activated After Successful Activation of your Account</div>
+              <div style="margin-top: 5px;" *ngIf="form.get('activationStatus')?.value === 'no'">Your old Debit Card
+                will
+                be
+                deactivated and a new Debit Card will be issued and delivered to your current address. Please ensure
+                your
+                address is updated.</div>
+            </div>
+          </div>
+          <div class="step" [class.active]="currentStep === 2">
+            <div class="step-content">
+              <p class="heading">Document Uplaod</p>
+              <p class="text">Please Ensure all Details are correct to avoid Delay in your Account Activation.</p>
+              <div class="form-row">
+                <div class="input-container">
+                  <label>Visa Number</label><br>
+                  <input type="text" formControlName="visanumber" placeholder="visa number" />
+                  <div
+                    *ngIf="form.controls['visanumber'].invalid && (form.controls['visanumber'].dirty || form.controls['visanumber'].touched)"
+                    class="error">
+                    Visa Number is required and should contain only numbers
+                  </div>
+                </div>
+                <div class="input-container">
+                  <label>Issuing Authority</label><br>
+                  <ng-autocomplete
+                    [data]="countries"
+                    [searchKeyword]="keyword"
+                    formControlName="issuingauthority"
+                    placeholder="Enter the Issuing Authority"
+                    (selected)="selectEvent($event)"
+                    [itemTemplate]="itemTemplate"
+                    [notFoundTemplate]="notFoundTemplate">
+                  </ng-autocomplete>
+                  <ng-template #itemTemplate let-item>
+                    <a [innerHTML]="item.name"></a>
+                  </ng-template>
+                  <ng-template #notFoundTemplate let-notFound>
+                    <div [innerHTML]="notFound"></div>
+                  </ng-template>
+                  <div
+                    *ngIf="form.controls['issuingauthority'].invalid && (form.controls['issuingauthority'].dirty || form.controls['issuingauthority'].touched)"
+                    class="error">
+                    Issuing Authority is required
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="input-container">
+                  <label>Expiry Date</label><br>
+                  <input type="date" formControlName="expirydate" placeholder="expiry date" />
+                  <div
+                    *ngIf="form.controls['expirydate'].invalid && (form.controls['expirydate'].dirty || form.controls['expirydate'].touched)"
+                    class="error">
+                    Expiry Date is required and should be valid
+                  </div>
+                </div>
+                <div class="input-container">
+                  <label>Upload Document</label><br>
+                  <input type="text" readonly (click)="fileInput.click()"
+                    [value]="uploadedFile ? uploadedFile.name : 'Search'" placeholder="Search">
+                  <input type="file" #fileInput style="display: none;" (change)="onFileSelected($event)"
+                    accept=".pdf, .jpg, .jpeg">
+                </div>
+              </div>
+              <ul style="list-style-type: circle;">
+                <li>Scan the Document</li>
+                <li>Save the File in PDF/JPEG Format</li>
+              </ul>
+              <button type="button" class="viewfile" *ngIf="uploadedFile" (click)="openFileDialog()">Preview
+                File</button>
+              <p class="text">Please Ensure all Details are correct to avoid Delay in your Account Activation.</p>
+              <div class="form-row">
+                <div class="input-container">
+                  <label>Passport Number</label><br>
+                  <input type="text" formControlName="passportNumber" placeholder="Passport Number" />
+                  <div
+                    *ngIf="form.controls['passportNumber'].invalid && (form.controls['passportNumber'].dirty || form.controls['passportNumber'].touched)"
+                    class="error">
+                    Passport number must be exactly 8 characters and contain at least one letter and one number
+                  </div>
+                </div>
+                <div class="input-container">
+                  <label>Issuing Authority</label><br>
+                  <ng-autocomplete
+                    [data]="countries"
+                    [searchKeyword]="keyword"
+                    formControlName="issuingauthority1"
+                    placeholder="Enter the Issuing Authority"
+                    (selected)="selectEvent1($event)"
+                    [itemTemplate]="itemTemplate"
+                    [notFoundTemplate]="notFoundTemplate">
+                  </ng-autocomplete>
+                  <ng-template #itemTemplate let-item>
+                    <a [innerHTML]="item.name"></a>
+                  </ng-template>
+                  <ng-template #notFoundTemplate let-notFound>
+                    <div [innerHTML]="notFound"></div>
+                  </ng-template>
+                  <div
+                    *ngIf="form.controls['issuingauthority1'].invalid && (form.controls['issuingauthority1'].dirty || form.controls['issuingauthority1'].touched)"
+                    class="error">
+                    Issuing Authority is required
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="input-container">
+                  <label>Expiry Date</label><br>
+                  <input type="date" formControlName="expirydate1" placeholder="expiry date" />
+                  <div
+                    *ngIf="form.controls['expirydate1'].invalid && (form.controls['expirydate1'].dirty || form.controls['expirydate1'].touched)"
+                    class="error">
+                    Expiry Date is required and should be valid
+                  </div>
+                </div>
+                <div class="input-container">
+                  <label>Upload Document</label><br>
+                  <input type="text" readonly (click)="fileInput1.click()" [value]="uploadedFile1 ? uploadedFile1.name : 'Search'" placeholder="Search">
+                  <input type="file" #fileInput1 style="display: none;" (change)="onFileSelected1($event)" accept=".pdf, .jpg, .jpeg">
+                </div>
+              </div>
+              <ul style="list-style-type: circle;">
+                <li>Scan the Document</li>
+                <li>Scan the first & last page of the Document</li>
+              </ul>
+              <button type="button" class="viewfile" *ngIf="uploadedFile1" (click)="openFileDialog1()">Preview File</button>
+              <p class="heading">Authorization</p>
+              <label>
+                <input type="checkbox" formControlName="termsAgreed" />
+                I hereby consent to the Bank collecting, using and disclosing my personal information for the puposs
+                identified in the Bank's Privacy Policy, which I have received, read and understood. I understand that
+                ICICI
+                Bank Germany reserves the right to carry other additional checks for the verification purpose on me
+              </label>
+              <div *ngIf="form.get('termsAgreed')?.hasError('required')" class="error">
+                You must agree to the terms and conditions
+              </div>
+            </div>
+          </div>
+          <div class="step" [class.active]="currentStep === 3">
+            <div class="step-content">
+              <p class="heading">KYC Verification</p>
+              <p class="text">To activate your account, you are required to complete KYC verification, please note this
+                process is free of charge for you.</p>
+              <p class="text">Online mode: This identification service is completely online can be completed within 10
+                minutes from the comforts of your home. To know more about this partner please <a
+                  href="https://www.icicibank.de/" target="_blank" style="color: red; text-decoration:none">click
+                  here</a>
+              </p>
+              <p class="text">Offline mode: This offline mode of identification is performed in cooperation with
+                Deutsche
+                Post.</p>
+              <p class="text">You just have to take the print out of Postident coupon and visit the nearest Deutsche
+                Post
+                AG
+                personally with the Postident coupon and your official ID documents such as passport (Reisepass) or ID
+                card
+                (Personalausweis).</p>
+              <p class="text">Please note: The identification process is completely ree of charge and you need not pay
+                any
+                charges for the same.</p>
+              <p class="text">Please select your Preferred method</p>
+              <label>
+                <input type="radio" formControlName="confirmation" value="idnow" />
+                <span class="styled-radio">IDnow</span>
+              </label>
+              <br>
+              <label>
+                <input type="radio" formControlName="confirmation" value="postident" />
+                <span class="styled-radio">Post Ident</span>
+              </label>
+              <br><br><br>
+              <button type="button" class="styled-radio" style="border-radius: 3px;border:1px solid rgb(2, 58, 154);margin:0px;">Identify Me</button>
+              <br><br>
+              <p class="text" style="font-weight: bold;">Online Video Identification can be done in a matter of minutes</p>
+              <ol>
+                <li>Click on 'Identify Me' button to start the process.</li>
+                <li>Keep ID document and German Address proof handy.<br>Use passport/Visa as ID document and City registration certificate or a German utility bill in your name as an address proof.</li>
+                <li>On Successful completion, re-login to "Account Activation" portal of ICICI Bank Germany Blocked account.</li>
+                <li>Click on 'Identify Me' button and Submit your application.</li>
+              </ol>
+              <p class="text">Disclaimer: Your personal details would be stored with the partner as a part of identification process. ICICI Bank will not be responsible for any breach or loss of data at the partner.</p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="file-dialog" *ngIf="fileDialogVisible">
+      <div class="file-dialog-content">
+        <span class="close-button" (click)="closeFileDialog()">X</span>
+        <object *ngIf="fileType === 'pdf'" [data]="getSanitizedURL(fileURL)" type="application/pdf" width="100%"
+          height="500px">
+          <p>PDF viewer not available</p>
+        </object>
+        <img *ngIf="fileType === 'image'" [src]="fileURL" width="100%">
+        <button type="button" (click)="deleteFile()">Delete</button>
+      </div>
+    </div>
+    <div class="file-dialog" *ngIf="fileDialogVisible1">
+      <div class="file-dialog-content">
+        <span class="close-button" (click)="closeFileDialog1()">X</span>
+        <object *ngIf="fileType1 === 'pdf'" [data]="getSanitizedURL(fileURL1)" type="application/pdf" width="100%" height="500px">
+          <p>PDF viewer not available</p>
+        </object>
+        <img *ngIf="fileType1 === 'image'" [src]="fileURL1" width="100%">
+        <button type="button" (click)="deleteFile1()">Delete</button>
+      </div>
+    </div>
+    
+  </div>
+  <div class="step-navigation">
+    <button *ngIf="currentStep !== 1" type="button" class="previous-button" (click)="previousStep()">Previous</button>
+    <button *ngIf="currentStep !== 3" type="button" class="next-button" (click)="nextStep()">Next</button>
+    <button *ngIf="currentStep === 3" type="button" class="submit-button" (click)="submitForm()">Submit</button>
+  </div>
+
+</div>
+
+
+<!-- <mat-horizontal-stepper [linear]="true" #stepper class="custom-stepper">
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <p class="heading">Debit Card Details</p>
+        <p class="ptext">Have you received the Debit Card?</p>
+        <mat-radio-group formControlName="firstQuestion">
+          <mat-radio-button value="yes">Yes</mat-radio-button>
+          <mat-radio-button value="no">No</mat-radio-button>
+        </mat-radio-group>
+        <div class="ptext" *ngIf="firstFormGroup.get('firstQuestion')?.value === 'yes'">Debit Card will be Activated After Successful Activation of your Account</div>
+        <div class="ptext" *ngIf="firstFormGroup.get('firstQuestion')?.value === 'no'">Your old Debit Card will be deactivated and a new Debit Card will be issued and delivered to your current address. Please ensure your address is updated.</div>
+        <div class="pnbuttons">
+          <button mat-button matStepperPrevious>Previous</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Step 2</ng-template>
+        <mat-form-field>
+          <mat-label>Visa Number</mat-label>
+          <input matInput formControlName="visaNumber" required>
+          <mat-error *ngIf="secondFormGroup.get('visaNumber')?.hasError('required')">Visa number is required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Issuing Authority</mat-label>
+          <input matInput formControlName="issuingAuthority" required>
+          <mat-error *ngIf="secondFormGroup.get('issuingAuthority')?.hasError('required')">Issuing authority is required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Expiry Date</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="expiryDate" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="secondFormGroup.get('expiryDate')?.hasError('required')">Expiry date is required</mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="fileInput.click()">Upload Document</button>
+        <input #fileInput type="file" style="display: none" (change)="onFileSelected($event)" required>
+        <div *ngIf="uploadedFile">
+          <div class="uploaded-file-preview">
+            <mat-card>
+              <img [src]="uploadedFile" alt="Uploaded file">
+              <button mat-icon-button (click)="closePreview()"><mat-icon>close</mat-icon></button>
+            </mat-card>
+            <button mat-raised-button color="warn" (click)="deleteFile()">Delete</button>
+          </div>
+        </div>
+        <mat-checkbox formControlName="agreement" required>I agree to the terms and conditions</mat-checkbox>
+        <mat-error *ngIf="secondFormGroup.get('agreement')?.hasError('required')">You must agree before proceeding</mat-error>
+        <div>
+          <button mat-button matStepperPrevious>Previous</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="thirdFormGroup">
+      <form [formGroup]="thirdFormGroup">
+        <ng-template matStepLabel>Step 3</ng-template>
+        <p>sample text</p>
+        <mat-radio-group formControlName="thirdQuestion">
+          <mat-radio-button value="option1">Option 1</mat-radio-button>
+          <mat-radio-button value="option2">Option 2</mat-radio-button>
+        </mat-radio-group>
+        <div>
+          <button mat-button matStepperPrevious>Previous</button>
+          <button mat-button (click)="onSubmit()">Submit</button>
+        </div>
+      </form>
+    </mat-step>
+  </mat-horizontal-stepper>
+   -->

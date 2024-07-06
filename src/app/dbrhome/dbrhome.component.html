@@ -1,0 +1,27 @@
+<div class="content">
+    <button class="content-button" (click)="navigateTo('debitcardactivation')">
+        <div>
+            <i class="fa fa-credit-card button-icon"
+                style="margin-right: 10px;"></i>
+            <span class="button-content">Debit Card Activation</span>
+        </div>
+        <i class="fas fa-angle-double-right button-icon" style="margin-right: 10px;"></i>
+    </button>
+    <button class="content-button" (click)="navigateTo('debitcardstatus')">
+        <div>
+            <i class="far fa-newspaper button-icon"
+                style="margin-right: 10px;"></i>
+            <span class="button-content">Debit Card Status</span>
+        </div>
+        <i class="fas fa-angle-double-right button-icon" style="margin-right: 10px;"></i>
+    </button>
+    <button class="content-button" (click)="navigateTo('debitcardreorder')">
+        <div>
+            <i class="fa fa-credit-card button-icon"
+                style="margin-right: 10px;"></i>
+            <span class="button-content">Debit Card Reorder</span>
+        </div>
+        <i class="fas fa-angle-double-right button-icon" style="margin-right: 10px;"></i>
+    </button>
+    <router-outlet></router-outlet>
+</div>

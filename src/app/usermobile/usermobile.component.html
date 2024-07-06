@@ -1,0 +1,19 @@
+<form [formGroup]="mobileForm" (ngSubmit)="onSubmit()">
+    <h3 class="header">Mobile Phone Number</h3>
+    <div class="input-container">
+        <label>Mobile Phone</label><br>
+        <input type="text" formControlName="mobilenumber" placeholder="Mobile Phone" />
+        <div *ngIf="mobileForm.controls['mobilenumber'].invalid && (mobileForm.controls['mobilenumber'].dirty || mobileForm.controls['mobilenumber'].touched)"
+             class="error">
+             Mobile number is required and should contain only numbers. Length should be 10 to 11
+        </div>
+    </div>
+    <div class="button-container">
+        <button type="button" class="previous-button" (click)="onPrevious()" style="background-color:white;color: #0056b3;">Previous</button>
+        <button type="submit" class="update-button" style="background-color: #0056b3;color:white;">Update</button>
+    </div>
+</form>
+
+<div *ngIf="showOtpModal" class="otp-dialog">
+    <app-otpgen (otpVerified)="onOtpVerified()" (close)="onCloseOtp()"></app-otpgen>
+  </div>

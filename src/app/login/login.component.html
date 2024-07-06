@@ -1,0 +1,32 @@
+<div class="form-container">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="para">
+            <p>Enter your Login Details Below</p>
+        </div>
+        <div class="input-container">
+            <div class="input-icon">
+                <input type="text" formControlName="passportNumber" placeholder="Passport Number" />
+
+            </div>
+            <div *ngIf="loginForm.controls['passportNumber'].invalid && (loginForm.controls['passportNumber'].dirty || loginForm.controls['passportNumber'].touched)"
+                class="error">Passport number is inavlid</div>
+        </div>        
+        <div class="input-container">
+            <div class="input-icon">
+                <input id="dateOfBirth" formControlName="dateOfBirth" type="date" placeholder="Date of Birth" />
+
+            </div>
+            <div *ngIf="loginForm.controls['dateOfBirth'].invalid && (loginForm.controls['dateOfBirth'].dirty || loginForm.controls['dateOfBirth'].touched)"
+                class="error">Date of birth is invalid</div>
+        </div>
+        <div class="input-container">
+            <div class="input-icon">
+                <input type="text" formControlName="country" placeholder="Country" />
+
+            </div>
+            <div *ngIf="loginForm.controls['country'].invalid && (loginForm.controls['country'].dirty || loginForm.controls['country'].touched)"
+                class="error">Country is invalid</div>
+        </div>
+        <button type="submit">Login</button>
+    </form>
+</div>

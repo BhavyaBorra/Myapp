@@ -1,0 +1,37 @@
+<form [formGroup]="reorderForm" (ngSubmit)="onSubmit()">
+    <h3 class="header">Debit Card Reorder</h3>
+    <div class="form-row">
+        <div class="input-container">
+            <label for="accountNumber">Account Number</label>
+            <select formControlName="accountNumber" id="accountNumber" class="form-control">
+                <option *ngFor="let account of user?.accountnumber" [value]="account">{{ account }}</option>
+            </select>
+            <div *ngIf="reorderForm.get('accountNumber')?.errors?.['required'] && reorderForm.get('accountNumber')?.touched"
+                class="error">
+                Account Number is required.
+            </div>
+        </div>
+        <div class="input-container">
+            <label>Reason</label>
+            <select formControlName="reason" class="form-control">
+                <option *ngFor="let reason of reasons" [value]="reason">{{ reason }}</option>
+            </select>
+            <div *ngIf="reorderForm.get('reason')?.errors?.['required'] && reorderForm.get('reason')?.touched"
+                class="error">
+                Reason is required.
+            </div>
+        </div>
+    </div>
+    <br>
+    <p>Please Note:</p>
+    <ul>
+        <li>Debit card will be delivered to your registered address, mentioned above.</li>
+        <li>If you are re-trying, please check the status of your previous request.</li>
+    </ul>
+    <br><br>
+    <div class="button-container">
+        <button type="button" class="previous-button" (click)="onPrevious()"
+            style="background-color:white;color: #0056b3;">Previous</button>
+        <button type="submit" class="update-button" style="background-color: #0056b3;color:white;">Issue New Debit Card</button>
+    </div>
+</form>

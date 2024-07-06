@@ -1,0 +1,28 @@
+.preview-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #000;
+    padding: 20px;
+    background-color: #fff;
+    max-width: 80%;
+    max-height: 80%;
+    overflow: auto;
+    z-index: 1000;
+  }
+  
+  .preview-header {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .preview-body {
+    margin: 20px 0;
+  }
+  
+  .preview-footer {
+    display: flex;
+    justify-content: flex-start;
+  }
+  

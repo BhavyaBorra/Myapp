@@ -1,0 +1,44 @@
+<form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="visaNumber">Visa Number</label>
+    <input id="visaNumber" formControlName="visaNumber">
+  </div>
+  <div>
+    <label for="passportNumber">Passport Number</label>
+    <input id="passportNumber" formControlName="passportNumber">
+  </div>
+  <div>
+    <label for="expiryDate">Expiry Date</label>
+    <input id="expiryDate" formControlName="expiryDate" type="date">
+  </div>
+  <div>
+    <label for="agree">I Agree</label>
+    <input id="agree" formControlName="agree" type="checkbox">
+  </div>
+  <div>
+    <label for="file">Upload File</label>
+    <input id="file" type="file" (change)="onFileChange($event)">
+  </div>
+  <button type="submit">Upload File</button>
+</form>
+
+<button *ngIf="file" (click)="togglePreview()" class="preview-button">
+  {{ previewVisible ? 'Close Preview' : 'Preview File' }}
+</button>
+
+<div *ngIf="previewVisible" class="preview-box">
+  <div class="preview-header">
+    <button (click)="closePreview()">X</button>
+  </div>
+  <div class="preview-body">
+    <ng-container *ngIf="file?.type === 'image/jpeg'">
+      <img [src]="filePreviewUrl" alt="File Preview" style="max-width: 100%; max-height: 100%;">
+    </ng-container>
+    <ng-container *ngIf="file?.type === 'application/pdf'">
+      <iframe [src]="filePreviewUrl" style="width: 100%; height: 100%;"></iframe>
+    </ng-container>
+  </div>
+  <div class="preview-footer">
+    <button (click)="deleteFile()">Delete</button>
+  </div>
+</div>

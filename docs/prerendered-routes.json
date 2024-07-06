@@ -1,0 +1,24 @@
+{
+  "routes": [
+    "/home",
+    "/login",
+    "/loginhome",
+    "/loginhome/activateaccount",
+    "/loginhome/debitcardrelated",
+    "/loginhome/debitcardrelated/dbrhome",
+    "/loginhome/debitcardrelated/debitcardactivation",
+    "/loginhome/debitcardrelated/debitcardreorder",
+    "/loginhome/debitcardrelated/debitcardstatus",
+    "/loginhome/homecontent",
+    "/loginhome/trackstatus",
+    "/loginhome/updateaccount",
+    "/loginhome/updateaccount/updateaccounthome",
+    "/loginhome/updateaccount/useraddress",
+    "/loginhome/updateaccount/userconsent",
+    "/loginhome/updateaccount/useremail",
+    "/loginhome/updateaccount/usermobile",
+    "/loginhome/upload",
+    "/register",
+    "/registerhome"
+  ]
+}

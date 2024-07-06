@@ -1,0 +1,25 @@
+.content {
+    padding: 20px;
+    width: 80%;
+    position: absolute;
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+.content-button {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 20px;
+    height: 60px;
+    border: 1px solid #ccc;
+    background-color: rgb(245, 124, 2);
+    color: white;
+    border-radius: 5px;
+    align-items: center;
+}
+
+.button-content {
+    margin-left: 10px;
+}

@@ -1,0 +1,146 @@
+{
+  "users": [
+    {
+      "id": "3cf9",
+      "username": "Angular",
+      "email": "newmail@gmail.com",
+      "dateOfBirth": "2001-01-01",
+      "passportNumber": "12ABCD34",
+      "postalCode": "546213",
+      "country": "us",
+      "addressline1": "Update address1",
+      "addressline2": "Update address2",
+      "mobilenumber": "8798879887",
+      "password": "Angular@123",
+      "confirmPassword": "Angular@123",
+      "accountnumber": [
+        "0000527655"
+      ],
+      "debitcard": [
+        "4592123456783982",
+        "4592123456784154",
+        "4592123456784337"
+      ],
+      "applicationCompleted": true,
+      "fundingCompleted": false,
+      "debitCardDispatched": false
+    },
+    {
+      "id": "6856",
+      "username": "Sample",
+      "email": "updatedsample@gmail.com",
+      "dateOfBirth": "2002-02-02",
+      "passportNumber": "ASDF1234",
+      "postalCode": "535003",
+      "country": "us",
+      "addressline1": "address1 sample",
+      "addressline2": "addess2 sample",
+      "mobilenumber": "9569569874",
+      "password": "Sample@123",
+      "confirmPassword": "Sample@123",
+      "applicationCompleted": true,
+      "fundingCompleted": true,
+      "debitCardDispatched": false
+    },
+    {
+      "id": "99a4",
+      "username": "demo user",
+      "email": "newupdate@gmail.com",
+      "dateOfBirth": "2001-02-03",
+      "passportNumber": "AABBCC12",
+      "country": "germany",
+      "addressline1": "demo address 1",
+      "addressline2": "demo address 2",
+      "postalcode": "666555",
+      "mobilenumber": "9192919291",
+      "password": "Demouser@123",
+      "confirmPassword": "Demouser@123"
+    },
+    {
+      "id": "8346",
+      "username": "sample user",
+      "email": "sampleuser@gmail.com",
+      "dateOfBirth": "2001-03-02",
+      "passportNumber": "ABCDEFG1",
+      "country": "us",
+      "addressline1": "updated address 1",
+      "addressline2": "updated address2",
+      "postalcode": "525005",
+      "mobilenumber": "9898979796",
+      "password": "Sample@123",
+      "confirmPassword": "Sample@123",
+      "postalCode": "545454"
+    }
+  ],
+  "formData": [
+    {
+      "id": "06eb",
+      "firstQuestion": "yes",
+      "visaNumber": "12",
+      "issuingAuthority": "dea",
+      "expiryDate": "2024-06-09T18:30:00.000Z",
+      "agreement": true,
+      "thirdQuestion": "option2",
+      "uploadedFile": null
+    },
+    {
+      "id": "26ac",
+      "firstQuestion": "no",
+      "visaNumber": "1234",
+      "issuingAuthority": "india",
+      "expiryDate": "2024-06-26T18:30:00.000Z",
+      "agreement": true,
+      "thirdQuestion": "option2",
+      "uploadedFile": "data:image/jpeg;base64,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"
+    },
+    {
+      "id": "24f0",
+      "activationStatus": "no",
+      "uploadedFile": "download.jpg",
+      "confirmation": "idnow",
+      "visanumber": "12345678901234567890",
+      "issuingauthority": "asdfg",
+      "expirydate": "2024-06-27",
+      "passportNumber": "1234asdf",
+      "issuingauthority1": "as",
+      "expirydate1": "2024-06-22",
+      "termsAgreed": true
+    },
+    {
+      "id": "ac13",
+      "activationStatus": "yes",
+      "uploadedFile": "sample.pdf",
+      "confirmation": "idnow",
+      "visanumber": "12345678901234567890",
+      "issuingauthority": "india",
+      "expirydate": "2024-06-29",
+      "passportNumber": "3456wert",
+      "issuingauthority1": "dfgh",
+      "expirydate1": "2024-06-21",
+      "termsAgreed": true
+    },
+    {
+      "id": "2757",
+      "activationStatus": "yes",
+      "uploadedFile": "download.jpg",
+      "confirmation": "idnow",
+      "visanumber": "09876543211234567890",
+      "issuingauthority": "us",
+      "expirydate": "2024-06-27",
+      "passportNumber": "1234AWSE",
+      "issuingauthority1": "usa",
+      "expirydate1": "2024-06-28",
+      "termsAgreed": true
+    }
+  ],
+  "uploads": [
+    {
+      "id": "02d8",
+      "visaNumber": "12345",
+      "passportNumber": "axsdc",
+      "expiryDate": "2024-06-03",
+      "agree": true,
+      "file": {}
+    }
+  ]
+}

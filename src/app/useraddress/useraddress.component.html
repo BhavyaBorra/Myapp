@@ -1,0 +1,47 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <h3 class="header">Mailing / Home Address</h3>
+    <div class="form-row">
+        <div class="input-container">
+            <label>Address Line 1</label><br>
+            <input type="text" formControlName="addressline1" placeholder="Address line 1" />
+            <div *ngIf="registerForm.controls['addressline1'].invalid && (registerForm.controls['addressline1'].dirty || registerForm.controls['addressline1'].touched)"
+                 class="error">
+                Address line 1 is required and should contain only alphabets, numbers and spaces
+            </div>
+        </div>
+        <div class="input-container">
+            <label>Address Line 2</label><br>
+            <input type="text" formControlName="addressline2" placeholder="Address line 2" />
+            <div *ngIf="registerForm.controls['addressline2'].invalid && (registerForm.controls['addressline2'].dirty || registerForm.controls['addressline2'].touched)"
+                 class="error">
+                Address line 2 is required and should contain only alphabets, numbers and spaces
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="input-container">
+            <label>Country</label><br>
+            <input type="text" formControlName="country" placeholder="Country" />
+            <div *ngIf="registerForm.controls['country'].invalid && (registerForm.controls['country'].dirty || registerForm.controls['country'].touched)"
+                 class="error">
+                Country is required and should contain only alphabets and spaces.
+            </div>
+        </div>
+        <div class="input-container">
+            <label>Postal Code</label><br>
+            <input type="text" formControlName="postalcode" placeholder="Postal Code" />
+            <div *ngIf="registerForm.controls['postalcode'].invalid && (registerForm.controls['postalcode'].dirty || registerForm.controls['postalcode'].touched)"
+                 class="error">
+                Postal code is required and should contain only numbers. Length should be 5 to 6 digits.
+            </div>
+        </div>
+    </div>
+    <div class="button-container">
+        <button type="button" class="previous-button" (click)="onPrevious()" style="background-color:white;color: #0056b3;">Previous</button>
+        <button type="submit" class="update-button" style="background-color: #0056b3;color:white;">Update</button>
+    </div>
+</form>
+
+<div *ngIf="showOtpModal" class="otp-dialog">
+    <app-otpgen (otpVerified)="onOtpVerified()" (close)="onCloseOtp()"></app-otpgen>
+  </div>

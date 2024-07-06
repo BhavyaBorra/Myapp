@@ -1,0 +1,167 @@
+<div class="header">
+  <img src="assets/icici_logo.svg" class="header-image" alt="Header Image">
+  <h1 style="margin-left: 20%; font-size:20px; margin-top:15px; ">Register</h1>
+</div>
+<button class="back-button" (click)="goToHome()">Back</button>
+<div class="form-container">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="input-container">
+      <label>Username</label><br>
+      <input type="text" formControlName="username" placeholder="Username" />
+      <div
+        *ngIf="registerForm.controls['username'].invalid && (registerForm.controls['username'].dirty || registerForm.controls['username'].touched)"
+        class="error">
+        Username is required and should contain only alphabets and spaces
+      </div>
+    </div>
+    <div class="input-container">
+      <label>Email</label><br>
+      <input type="email" formControlName="email" placeholder="Email" />
+      <div
+        *ngIf="registerForm.controls['email'].invalid && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)"
+        class="error">
+        Enter a valid email
+      </div>
+    </div>
+    <div class="input-container">
+      <label>Date of Birth</label><br>
+      <input type="date" formControlName="dateOfBirth" placeholder="Date of Birth" />
+      <div
+        *ngIf="registerForm.controls['dateOfBirth'].invalid && (registerForm.controls['dateOfBirth'].dirty || registerForm.controls['dateOfBirth'].touched)"
+        class="error">
+        You must be at least 18 years old
+      </div>
+    </div>
+    <div class="input-container">
+      <label>Passport Number</label><br>
+      <input type="text" formControlName="passportNumber" placeholder="Passport Number" />
+      <div
+        *ngIf="registerForm.controls['passportNumber'].invalid && (registerForm.controls['passportNumber'].dirty || registerForm.controls['passportNumber'].touched)"
+        class="error">
+        Passport number must be exactly 8 characters and contain at least one letter and one number
+      </div>
+    </div>
+    <div class="input-container">
+      <label>Country</label><br>
+      <div class="country-radio-buttons">
+        <label><input type="radio" value="india" formControlName="country"> India</label>
+        <label><input type="radio" value="germany" formControlName="country"> Germany</label>
+        <label><input type="radio" value="us" formControlName="country"> US</label>
+      </div>
+      <div
+        *ngIf="registerForm.controls['country'].invalid && (registerForm.controls['country'].dirty || registerForm.controls['country'].touched)"
+        class="error">
+        Please select a country
+      </div>
+    </div>
+    <div class="input-container">
+      <label>Address Line 1</label><br>
+      <input type="text" formControlName="addressline1" placeholder="Address line 1" />
+      <div
+        *ngIf="registerForm.controls['addressline1'].invalid && (registerForm.controls['addressline1'].dirty || registerForm.controls['addressline1'].touched)"
+        class="error">
+        Address line 1 is required and should contain only alphabets, numbers and spaces
+      </div>
+    </div>
+    <div class="input-container">
+      <label>Address Line 2</label><br>
+      <input type="text" formControlName="addressline2" placeholder="Address line 2" />
+      <div
+        *ngIf="registerForm.controls['addressline2'].invalid && (registerForm.controls['addressline2'].dirty || registerForm.controls['addressline2'].touched)"
+        class="error">
+        Address line 2 is required and should contain only alphabets, numbers and spaces
+      </div>
+    </div>
+    <div class="input-container">
+      <label>Postal Code</label><br>
+      <input type="text" formControlName="postalcode" placeholder="Postal Code" />
+      <div
+        *ngIf="registerForm.controls['postalcode'].invalid && (registerForm.controls['postalcode'].dirty || registerForm.controls['postalcode'].touched)"
+        class="error">
+        Postal code is required and should contain only numbers. Length should be 5 to 6
+      </div>
+    </div>
+    <div class="input-container">
+      <label>Mobile Number</label><br>
+      <input type="text" formControlName="mobilenumber" placeholder="Mobile Number" />
+      <div
+        *ngIf="registerForm.controls['mobilenumber'].invalid && (registerForm.controls['mobilenumber'].dirty || registerForm.controls['mobilenumber'].touched)"
+        class="error">
+        Mobile number is required and should contain only numbers. Length should be 10 to 11
+      </div>
+    </div>
+    <div class="input-container">
+      <label>Password</label><br>
+      <input type="password" formControlName="password" placeholder="Password" />
+      <!-- <div *ngIf="registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)" class="error">
+          Password must contain at least one uppercase letter, one lowercase letter, one numeric character, and one special character
+        </div> -->
+      <!-- <div class="password-requirements">
+          <div [class.valid]="passwordRequirements.hasUpperCase" [class.invalid]="!passwordRequirements.hasUpperCase">
+            <span class="icon" [class.green]="passwordRequirements.hasUpperCase" [class.red]="!passwordRequirements.hasUpperCase">*</span>
+            Must contain an Uppercase Character
+          </div>
+          <div [class.valid]="passwordRequirements.hasLowerCase" [class.invalid]="!passwordRequirements.hasLowerCase">
+            <span class="icon" [class.green]="passwordRequirements.hasLowerCase" [class.red]="!passwordRequirements.hasLowerCase">*</span>
+            Must contain a Lowercase Character
+          </div>
+          <div [class.valid]="passwordRequirements.hasNumeric" [class.invalid]="!passwordRequirements.hasNumeric">
+            <span class="icon" [class.green]="passwordRequirements.hasNumeric" [class.red]="!passwordRequirements.hasNumeric">*</span>
+            Must contain a Numeric Character
+          </div>
+          <div [class.valid]="passwordRequirements.hasNonAlphaNumeric" [class.invalid]="!passwordRequirements.hasNonAlphaNumeric">
+            <span class="icon" [class.green]="passwordRequirements.hasNonAlphaNumeric" [class.red]="!passwordRequirements.hasNonAlphaNumeric">*</span>
+            Must contain a Non-Alphanumeric Character
+          </div>
+          <div [class.valid]="passwordRequirements.isAtLeastEight" [class.invalid]="!passwordRequirements.isAtLeastEight">
+            <span class="icon" [class.green]="passwordRequirements.isAtLeastEight" [class.red]="!passwordRequirements.isAtLeastEight">*</span>
+            Must be At Least 8 Characters
+          </div>
+          <div [class.valid]="passwordRequirements.doesNotContainEmail" [class.invalid]="!passwordRequirements.doesNotContainEmail">
+            <span class="icon" [class.green]="passwordRequirements.doesNotContainEmail" [class.red]="!passwordRequirements.doesNotContainEmail">*</span>
+            Cannot contain Email Address
+          </div>
+        </div> -->
+      <div class="password-requirements">
+        <div [ngClass]="{ 'valid': passwordRequirements.hasUpperCase, 'invalid': !passwordRequirements.hasUpperCase }">
+          <i [ngClass]="passwordRequirements.hasUpperCase ? 'fa fa-check' : 'fa fa-times'"></i>
+          Must contain an Uppercase Character
+        </div>
+        <div [ngClass]="{ 'valid': passwordRequirements.hasLowerCase, 'invalid': !passwordRequirements.hasLowerCase }">
+          <i [ngClass]="passwordRequirements.hasLowerCase ? 'fa fa-check' : 'fa fa-times'"></i>
+          Must contain a Lowercase Character
+        </div>
+        <div [ngClass]="{ 'valid': passwordRequirements.hasNumeric, 'invalid': !passwordRequirements.hasNumeric }">
+          <i [ngClass]="passwordRequirements.hasNumeric ? 'fa fa-check' : 'fa fa-times'"></i>
+          Must contain a Numeric Character
+        </div>
+        <div
+          [ngClass]="{ 'valid': passwordRequirements.hasNonAlphaNumeric, 'invalid': !passwordRequirements.hasNonAlphaNumeric }">
+          <i [ngClass]="passwordRequirements.hasNonAlphaNumeric ? 'fa fa-check' : 'fa fa-times'"></i>
+          Must contain a Non-Alphanumeric Character
+        </div>
+        <div
+          [ngClass]="{ 'valid': passwordRequirements.isAtLeastEight, 'invalid': !passwordRequirements.isAtLeastEight }">
+          <i [ngClass]="passwordRequirements.isAtLeastEight ? 'fa fa-check' : 'fa fa-times'"></i>
+          Must be At Least 8 Characters
+        </div>
+        <div
+          [ngClass]="{ 'valid': passwordRequirements.doesNotContainEmail, 'invalid': !passwordRequirements.doesNotContainEmail }">
+          <i [ngClass]="passwordRequirements.doesNotContainEmail ? 'fa fa-check' : 'fa fa-times'"></i>
+          Cannot contain Email Address
+        </div>
+      </div>
+
+    </div>
+    <div class="input-container">
+      <label>Confirm Password</label><br>
+      <input type="password" formControlName="confirmPassword" placeholder="Confirm Password" />
+      <div
+        *ngIf="registerForm.hasError('mismatch') && (registerForm.controls['confirmPassword'].dirty || registerForm.controls['confirmPassword'].touched)"
+        class="error">
+        Passwords do not match
+      </div>
+    </div>
+    <button type="submit">Register</button>
+  </form>
+</div>

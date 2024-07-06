@@ -1,0 +1,55 @@
+<!-- <div class="track-status">
+  <div class="step">
+    <span>Application</span>
+    <div [ngClass]="{'circle': true, 'completed': userStatus.application}"></div>
+    <span>Completed</span>
+  </div>
+  <div [ngClass]="{'line': true, 'completed': userStatus.application}"></div>
+  <div class="step">
+    <span>Funding</span>
+    <div [ngClass]="{'circle': true, 'completed': userStatus.funding}"></div>
+    <span>Completed</span>
+  </div>
+  <div [ngClass]="{'line': true, 'completed': userStatus.funding}"></div>
+  <div class="step">
+    <span>Debit card dispatched</span>
+    <div [ngClass]="{'circle': true, 'completed': userStatus.debitCardDispatched}"></div>
+    <span>Completed</span>
+  </div>
+</div> -->
+
+<div class="maindiv">
+  <table>
+    <tr>
+      <td style="text-align: right;"><span>Application</span></td>
+      <td style="text-align:center;">
+        <div [ngClass]="{'circle': true, 'completed': userStatus.application}"></div>
+      </td>
+      <td style="text-align: left;"><span>Completed</span></td>
+    </tr>
+    <tr>
+      <td colspan="3" style="text-align: center;">
+        <div [ngClass]="{'line': true, 'completed': userStatus.application}"></div>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: right;"><span>Funding</span></td>
+      <td style="width: 120px;">
+        <div [ngClass]="{'circle': true, 'completed': userStatus.funding}"></div>
+      </td>
+      <td style="text-align: left;"><span>Completed</span></td>
+    </tr>
+    <tr>
+      <td colspan="3" style="text-align: center;">
+        <div [ngClass]="{'line': true, 'completed': userStatus.funding}"></div>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: right;"><span>Debit card dispatched</span></td>
+      <td style="width: 120px;">
+        <div [ngClass]="{'circle': true, 'completed': userStatus.debitCardDispatched}"></div>
+      </td>
+      <td style="text-align: left;"><span>Completed</span></td>
+    </tr>
+  </table>
+</div>

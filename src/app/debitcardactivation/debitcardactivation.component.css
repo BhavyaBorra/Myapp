@@ -1,0 +1,105 @@
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control1,
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+select option {
+    padding: 10px;
+    font-size: 0.9rem;
+    background-color: #fff;
+    color: #333;
+    height: 20px;
+}
+
+select option:hover {
+    background-color: #f0f0f0;
+}
+
+select option:checked {
+    background-color: #e9ecef;
+    font-weight: bold;
+}
+
+form {
+    max-width: 90%;
+    margin-left: 5%;
+    padding: 10px;
+}
+
+.header {
+    color: brown;
+    font-weight: bold;
+}
+
+.form-row {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.input-container {
+    margin-right: 10%;
+    width: 50%;
+}
+
+label {
+    display: block;
+}
+
+.error {
+    color: red;
+    font-size: 0.875em;
+}
+
+.button-container {
+    display: flex;
+}
+
+.previous-button,
+.update-button {
+    border: 1px solid #0056b3;
+    padding: 10px 20px;
+    width: 40%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 8%;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* input[type="text"] {
+    width: 100%;
+    padding: 6px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+} */
+
+/* input[type="text"],
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+} */
